@@ -4,10 +4,6 @@
 import React, { useState } from "react";
 import {
   Sparkles,
-  Home,
-  Building2,
-  PaintRoller,
-  Star,
   CheckCircle2,
   Phone,
   Calendar,
@@ -17,23 +13,47 @@ import {
   DollarSign,
   Clock,
   Users,
-  Shield,
   Award,
   ThumbsUp,
   MessageCircle,
-  Instagram,
-  Facebook,
 } from "lucide-react";
 
-// Custom components built inline
-const Button = ({ children, onClick, variant = "default", size = "default", className = "", asChild, href, target, ...props }: any) => {
+type ButtonVariant = "default" | "outline" | "ghost";
+type ButtonSize = "default" | "lg" | "sm";
+
+type ButtonProps = {
+  children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
+  asChild?: boolean;
+  href?: string;
+  target?: string;
+} & React.HTMLAttributes<HTMLElement>;
+
+type BadgeVariant = "default" | "secondary" | "success";
+
+type BadgeProps = {
+  children: React.ReactNode;
+  variant?: BadgeVariant;
+  className?: string;
+};
+
+type CardProps = {
+  children: React.ReactNode;
+  className?: string;
+  hover?: boolean;
+};
+
+const Button = ({ children, onClick, variant = "default", size = "default", className = "", asChild, href, target, ...props }: ButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 disabled:opacity-50";
-  const variants = {
+  const variants: Record<ButtonVariant, string> = {
     default: "bg-sky-600 text-white hover:bg-sky-700 shadow-md hover:shadow-lg",
     outline: "border-2 border-gray-300 bg-white text-gray-700 hover:border-sky-400 hover:text-sky-600",
     ghost: "text-gray-600 hover:bg-gray-100 hover:text-sky-600",
   };
-  const sizes = {
+  const sizes: Record<ButtonSize, string> = {
     default: "px-5 py-2.5 rounded-xl text-sm",
     lg: "px-8 py-4 rounded-2xl text-base",
     sm: "px-3 py-1.5 rounded-lg text-xs",
@@ -56,8 +76,8 @@ const Button = ({ children, onClick, variant = "default", size = "default", clas
   );
 };
 
-const Badge = ({ children, variant = "default", className = "" }: any) => {
-  const variants = {
+const Badge = ({ children, variant = "default", className = "" }: BadgeProps) => {
+  const variants: Record<BadgeVariant, string> = {
     default: "bg-sky-100 text-sky-700 border-sky-200",
     secondary: "bg-gray-100 text-gray-600 border-gray-200",
     success: "bg-green-100 text-green-700 border-green-200",
