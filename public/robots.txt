@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://premiumuytozalash.uz
+
+# Sitemaps
+Sitemap: https://premiumuytozalash.uz/sitemap.xml
