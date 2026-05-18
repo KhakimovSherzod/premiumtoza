@@ -12,8 +12,19 @@ export const metadata: Metadata = {
   description:
     "Premium Toza offers professional apartment, office, deep cleaning and post-renovation cleaning services in Tashkent.",
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: [
+      {
+        url:"/favicon.ico",
+        type: "image/x-icon",
+      },
+      {
+        url: "/favicon-96x96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: ["/favicon.ico"],
   },
 
   keywords: [
