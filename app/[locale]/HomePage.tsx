@@ -8,7 +8,6 @@ import {
   Phone,
   Calendar,
   Brush,
-  Clock,
   Users,
   Award,
   ThumbsUp,
@@ -19,6 +18,7 @@ import {
   Shield,
   Zap,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type ButtonVariant = "default" | "outline" | "ghost";
 type ButtonSize = "default" | "lg" | "sm";
@@ -89,126 +89,101 @@ const Badge = ({ children, variant = "default", className = "" }: BadgeProps) =>
 };
 
 export default function Homes() {
+  const t = useTranslations("home");
+
   const scrollToContact = () => {
     document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Get plans data from translations
   const plans = [
     {
       id: "basic",
-      title: "Basic Tozalash",
-      subtitle: "Kundalik va haftalik tozalash",
+      title: t("plans.basic.title"),
+      subtitle: t("plans.basic.subtitle"),
       icon: <Sparkles className="h-8 w-8" />,
-      badge: "🥇 Ommabop",
+      badge: t("plans.basic.badge"),
       badgeVariant: "gold" as BadgeVariant,
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
       image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&h=500&fit=crop",
-      goodFor: [
-        "Haftalik tozalash",
-        "Oilalar uchun",
-        "Nisbatan toza kvartiralar",
-      ],
-      includes: [
-        "Chang va axlat tozalash",
-        "Pol va gilamlarni tozalash",
-        "Hammomni tozalash",
-        "Oshxona yuzalarini tozalash",
-        "Mebellarni artish",
-        "Axlatni chiqarish",
-      ],
+      goodFor: t.raw("plans.basic.goodFor") as string[],
+      includes: t.raw("plans.basic.includes") as string[],
     },
     {
       id: "deep",
-      title: "General Tozalash",
-      subtitle: "Chuqur va mavsumiy tozalash",
+      title: t("plans.deep.title"),
+      subtitle: t("plans.deep.subtitle"),
       icon: <Brush className="h-8 w-8" />,
-      badge: "🥈 Eng ko'p tanlanadi",
+      badge: t("plans.deep.badge"),
       badgeVariant: "silver" as BadgeVariant,
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
       image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&h=500&fit=crop",
-      goodFor: [
-        "Mavsumiy tozalash",
-        "If los kvartiralar",
-        "Mehmon kelishidan oldin",
-        "Uzoq muddatdan keyin",
-      ],
-      includes: [
-        "Basic tozalashdagi barcha xizmatlar",
-        "Oshxonani chuqur tozalash",
-        "Mikroto'lqinli pech va pechni tozalash",
-        "Devordagi dog'lar",
-        "Hammomni qiyin joylarini tozalash",
-        "Mebellarni to'liq artish",
-        "Changni batafsil tozalash",
-      ],
+      goodFor: t.raw("plans.deep.goodFor") as string[],
+      includes: t.raw("plans.deep.includes") as string[],
     },
     {
       id: "renovation",
-      title: "Ta'mirdan Keyingi Tozalash",
-      subtitle: "Qurilish changi va qoldiqlar",
+      title: t("plans.renovation.title"),
+      subtitle: t("plans.renovation.subtitle"),
       icon: <Wrench className="h-8 w-8" />,
-      badge: "🥉 Professional",
+      badge: t("plans.renovation.badge"),
       badgeVariant: "bronze" as BadgeVariant,
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
       image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&h=500&fit=crop",
-      goodFor: [
-        "Yangi kvartiralar",
-        "Qurilishdan keyin",
-        "Ta'mirdan so'ng",
-        "Ofislar va uylar",
-      ],
-      includes: [
-        "Qurilish changini tozalash",
-        "Derazalarni yuvish",
-        "Bo'yoq va tsement qoldiqlari",
-        "Pollarini chuqur tozalash",
-        "Axlat va qoldiqlarni yig'ish",
-        "Shift va devorlarni tozalash",
-        "Batareya va radiatorlarni tozalash",
-      ],
+      goodFor: t.raw("plans.renovation.goodFor") as string[],
+      includes: t.raw("plans.renovation.includes") as string[],
     },
   ];
 
+  // Get gallery images from translations
   const galleryImages = [
     {
       src: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&h=500&fit=crop",
-      title: "Yashash xonasini tozalash",
-      badge: "✨ Umumiy tozalash",
-      description: "Chang va mebellarni chuqur tozalash",
+      title: t("galleryImages.0.title"),
+      badge: t("galleryImages.0.badge"),
+      description: t("galleryImages.0.description"),
     },
     {
       src: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=500&fit=crop",
-      title: "Oshxonani professional tozalash",
-      badge: "🍳 Oshxona tozalash",
-      description: "Pech, plita va jihozlarni tozalash",
+      title: t("galleryImages.1.title"),
+      badge: t("galleryImages.1.badge"),
+      description: t("galleryImages.1.description"),
     },
     {
       src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=500&fit=crop",
-      title: "Derazalarni yuvish",
-      badge: "🪟 Deraza tozalash",
-      description: "Professional uskuna bilan derazalarni tozalash",
+      title: t("galleryImages.2.title"),
+      badge: t("galleryImages.2.badge"),
+      description: t("galleryImages.2.description"),
     },
     {
       src: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&h=500&fit=crop",
-      title: "Hammomni tozalash",
-      badge: "🚿 Hammom tozalash",
-      description: "Dezinfeksiya va dog'larni tozalash",
+      title: t("galleryImages.3.title"),
+      badge: t("galleryImages.3.badge"),
+      description: t("galleryImages.3.description"),
     },
     {
       src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&h=500&fit=crop",
-      title: "Yumshoq mebellarni tozalash",
-      badge: "🛋️ Mebel tozalash",
-      description: "Divan va kreslolarni tozalash",
+      title: t("galleryImages.4.title"),
+      badge: t("galleryImages.4.badge"),
+      description: t("galleryImages.4.description"),
     },
     {
       src: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&h=500&fit=crop",
-      title: "Ta'mirdan keyingi tozalash",
-      badge: "🏗️ Ta'mirdan keyin",
-      description: "Qurilish changi va qoldiqlarni tozalash",
+      title: t("galleryImages.5.title"),
+      badge: t("galleryImages.5.badge"),
+      description: t("galleryImages.5.description"),
     },
+  ];
+
+  // Get features from translations
+  const features = [
+    { icon: <Shield className="h-8 w-8" />, title: t("featuresSection.features.0.title"), desc: t("featuresSection.features.0.description"), color: "bg-blue-600" },
+    { icon: <Users className="h-8 w-8" />, title: t("featuresSection.features.1.title"), desc: t("featuresSection.features.1.description"), color: "bg-gray-700" },
+    { icon: <Zap className="h-8 w-8" />, title: t("featuresSection.features.2.title"), desc: t("featuresSection.features.2.description"), color: "bg-blue-600" },
+    { icon: <Droplets className="h-8 w-8" />, title: t("featuresSection.features.3.title"), desc: t("featuresSection.features.3.description"), color: "bg-gray-700" },
   ];
 
   return (
@@ -219,22 +194,22 @@ export default function Homes() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-sm">PT</span>
+                <span className="text-white font-bold text-sm">{t("common.brandShort")}</span>
               </div>
               <span className="font-black text-xl tracking-tight text-gray-800">
-                Premium <span className="text-blue-600">Toza</span>
+                {t("navbar.logoText")} <span className="text-blue-600">{t("navbar.logoAccent")}</span>
               </span>
             </div>
             <div className="flex items-center gap-3">
               <a
-                href="tel:+998998184200"
+                href={`tel:${t("common.phoneNumber").replace(/\s/g, "")}`}
                 className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                +998 99 818 42 00
+                {t("common.phoneNumber")}
               </a>
               <a
-                href="https://t.me/tritonium"
+                href={t("common.telegramLink")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 transition-all hover:bg-gray-200"
@@ -242,7 +217,7 @@ export default function Homes() {
                 <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.6-1.38-.97-2.23-1.56-.99-.69-.35-1.07.22-1.69.15-.15 2.77-2.54 2.82-2.76.01-.03.02-.14-.05-.2-.07-.06-.18-.04-.26-.02-.11.02-1.86 1.18-5.25 3.47-.5.34-.95.5-1.36.49-.45-.01-1.31-.25-1.95-.46-.78-.25-1.4-.38-1.35-.81.03-.22.33-.45.91-.68 3.58-1.56 5.97-2.59 7.17-3.09 3.41-1.42 4.12-1.67 4.58-1.68.1 0 .33.02.48.15.13.11.16.27.18.43.01.09.01.21-.02.38z"/>
                 </svg>
-                <span className="hidden sm:inline">@tritonium</span>
+                <span className="hidden sm:inline">{t("common.telegramHandle")}</span>
               </a>
             </div>
           </div>
@@ -250,7 +225,7 @@ export default function Homes() {
       </header>
 
       <main>
-        {/* Hero Section with Light Gray + Blue theme */}
+        {/* Hero Section */}
         <section className="relative overflow-hidden bg-[#FAFAFA] py-16 md:py-24 lg:py-32">
           <div className="absolute top-20 right-0 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-100/60 rounded-full blur-3xl"></div>
@@ -259,26 +234,25 @@ export default function Homes() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge className="mb-6 bg-white border-gray-200 shadow-sm">
-                  ✨ Toshkentdagi Professional Tozalash Xizmati
+                  {t("hero.badge")}
                 </Badge>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-gray-800">
-                  Uyingizni
-                  <span className="block text-blue-600 mt-2">Beg'ubor Poklik</span>
-                  bilan tanishtiring
+                  {t("hero.titleLine1")}
+                  <span className="block text-blue-600 mt-2">{t("hero.titleLine2")}</span>
+                  {t("hero.titleLine3")}
                 </h1>
                 <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                  <span className="font-semibold text-gray-800">Premium Toza</span> - bu nafaqat tozalash, balki sizning uyingizga 
-                  yangi nafas va poklik olib kelamiz. Tajribali ishchilar, zamonaviy jihozlar va 100% sifat kafolati.
+                  <span className="font-semibold text-gray-800">{t("common.brandName")}</span> {t("hero.description")}
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Button size="lg" onClick={scrollToContact}>
                     <Calendar className="mr-2 h-5 w-5" />
-                    Bepul Baho Olish
+                    {t("hero.ctaFreeQuote")}
                   </Button>
-                  <Button size="lg" variant="outline" asChild href="https://t.me/tritonium" target="_blank">
+                  <Button size="lg" variant="outline" asChild href={t("common.telegramLink")} target="_blank">
                     <>
                       <MessageCircle className="mr-2 h-5 w-5" />
-                      Telegram orqali bog'lanish
+                      {t("hero.ctaTelegram")}
                     </>
                   </Button>
                 </div>
@@ -291,7 +265,7 @@ export default function Homes() {
                     ))}
                   </div>
                   <div className="text-sm text-gray-500">
-                    <span className="font-bold text-gray-700">500+</span> mijozlar ishonchi
+                    <span className="font-bold text-gray-700">{t("hero.trustCount")}</span> {t("hero.trustLabel")}
                   </div>
                 </div>
               </div>
@@ -299,26 +273,13 @@ export default function Homes() {
               <div className="relative">
                 <div className="absolute inset-0 bg-blue-100/30 rounded-full blur-3xl"></div>
                 <div className="relative grid grid-cols-2 gap-4 rounded-3xl bg-white p-5 shadow-xl border border-gray-200">
-                  <div className="rounded-xl bg-gray-50 p-4 shadow-sm hover:shadow-md transition cursor-pointer border border-gray-100">
-                    <div className="text-3xl mb-2">🏠</div>
-                    <h3 className="font-bold text-gray-800">Uy / Kvartira</h3>
-                    <p className="text-xs text-gray-500 mt-1">To'liq tozalash</p>
-                  </div>
-                  <div className="rounded-xl bg-gray-50 p-4 shadow-sm mt-6 hover:shadow-md transition cursor-pointer border border-gray-100">
-                    <div className="text-3xl mb-2">🏢</div>
-                    <h3 className="font-bold text-gray-800">Ofis</h3>
-                    <p className="text-xs text-gray-500 mt-1">Korporativ tozalash</p>
-                  </div>
-                  <div className="rounded-xl bg-gray-50 p-4 shadow-sm -mt-2 hover:shadow-md transition cursor-pointer border border-gray-100">
-                    <div className="text-3xl mb-2">🪟</div>
-                    <h3 className="font-bold text-gray-800">Derazalar</h3>
-                    <p className="text-xs text-gray-500 mt-1">Professional yuvish</p>
-                  </div>
-                  <div className="rounded-xl bg-gray-50 p-4 shadow-sm mt-6 hover:shadow-md transition cursor-pointer border border-gray-100">
-                    <div className="text-3xl mb-2">✨</div>
-                    <h3 className="font-bold text-gray-800">General</h3>
-                    <p className="text-xs text-gray-500 mt-1">Chuqur tozalash</p>
-                  </div>
+                  {(t.raw("hero.serviceCards") as Array<{emoji: string, title: string, subtitle: string}>).map((card, idx) => (
+                    <div key={idx} className={`rounded-xl bg-gray-50 p-4 shadow-sm hover:shadow-md transition cursor-pointer border border-gray-100 ${idx === 1 ? 'mt-6' : idx === 2 ? '-mt-2' : idx === 3 ? 'mt-6' : ''}`}>
+                      <div className="text-3xl mb-2">{card.emoji}</div>
+                      <h3 className="font-bold text-gray-800">{card.title}</h3>
+                      <p className="text-xs text-gray-500 mt-1">{card.subtitle}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -329,9 +290,9 @@ export default function Homes() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <Badge variant="secondary" className="mb-4 bg-gray-100">Tozalash Paketlari</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-800">Sizning ehtiyojingizga mos paket</h2>
-              <p className="text-gray-500 mt-4">Uyingizning holatiga qarab eng mos tozalash turini tanlang</p>
+              <Badge variant="secondary" className="mb-4 bg-gray-100">{t("plansSection.badge")}</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-800">{t("plansSection.title")}</h2>
+              <p className="text-gray-500 mt-4">{t("plansSection.subtitle")}</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -340,7 +301,6 @@ export default function Homes() {
                   key={plan.id}
                   className={`rounded-2xl bg-white border ${plan.borderColor} overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
                 >
-                  {/* Image Section */}
                   <div className="relative h-48 overflow-hidden bg-gray-100">
                     <img 
                       src={plan.image}
@@ -363,7 +323,6 @@ export default function Homes() {
                   <div className="p-6">
                     <p className="text-sm text-gray-500 mb-4">{plan.subtitle}</p>
                     
-                    {/* Good For Section */}
                     <div className="mb-5">
                       <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
                         <Star className="h-3 w-3 text-amber-500 fill-amber-500" />
@@ -378,7 +337,6 @@ export default function Homes() {
                       </div>
                     </div>
                     
-                    {/* Includes Section */}
                     <div>
                       <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
                         <CheckCircle2 className="h-3 w-3 text-green-500" />
@@ -395,7 +353,7 @@ export default function Homes() {
                     </div>
                     
                     <Button className="w-full mt-6" onClick={scrollToContact}>
-                      Buyurtma Berish
+                      {t("plans.basic.buttonText")}
                     </Button>
                   </div>
                 </div>
@@ -408,9 +366,9 @@ export default function Homes() {
         <section className="py-20 bg-[#FAFAFA]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <Badge variant="secondary" className="mb-4 bg-gray-100">⭐ Bizning Ishlarimiz</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Professional tozalash natijalari</h2>
-              <p className="text-gray-500 mt-4">Tozalashdan oldin va keyin - farqni o'zingiz ko'ring</p>
+              <Badge variant="secondary" className="mb-4 bg-gray-100">{t("gallerySection.badge")}</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">{t("gallerySection.title")}</h2>
+              <p className="text-gray-500 mt-4">{t("gallerySection.subtitle")}</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {galleryImages.map((image, idx) => (
@@ -439,16 +397,11 @@ export default function Homes() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <Badge variant="secondary" className="mb-4 bg-gray-100">Nega aynan Premium Toza?</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Sifat va ishonch kafolati</h2>
+              <Badge variant="secondary" className="mb-4 bg-gray-100">{t("featuresSection.badge")}</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">{t("featuresSection.title")}</h2>
             </div>
             <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { icon: <Shield className="h-8 w-8" />, title: "100% Sifat Kafolati", desc: "Ish sifatiga to'liq kafolat", color: "bg-blue-600" },
-                { icon: <Users className="h-8 w-8" />, title: "Tajribali Ishchilar", desc: "Malakali va tekshirilgan xodimlar", color: "bg-gray-700" },
-                { icon: <Zap className="h-8 w-8" />, title: "24/7 Tezkor Xizmat", desc: "Tez va o'z vaqtida xizmat", color: "bg-blue-600" },
-                { icon: <Droplets className="h-8 w-8" />, title: "Eko-mahsulotlar", desc: "Zararsiz tozalash vositalari", color: "bg-gray-700" },
-              ].map((feature, idx) => (
+              {features.map((feature, idx) => (
                 <div key={idx} className="text-center p-6 rounded-2xl bg-[#FAFAFA] hover:shadow-md transition-all hover:-translate-y-1 border border-gray-100">
                   <div className={`w-16 h-16 ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm`}>
                     <div className="text-white">{feature.icon}</div>
@@ -466,14 +419,14 @@ export default function Homes() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
               <Award className="h-5 w-5 text-white" />
-              <span className="text-sm font-semibold">Maxsus Taklif</span>
+              <span className="text-sm font-semibold">{t("specialOffer.badge")}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold">Birinchi tozalashingizga 15% chegirma!</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t("specialOffer.title")}</h2>
             <p className="mt-4 text-blue-100 text-lg max-w-2xl mx-auto">
-              Hozir buyurtma qiling va <span className="font-bold text-white">bepul changyutkich</span> xizmatiga ega bo'ling
+              {t("specialOffer.description")}
             </p>
             <Button className="mt-6 bg-white text-blue-600 hover:bg-gray-100 shadow-lg text-lg px-8 py-4" onClick={scrollToContact}>
-              Chegirmani Qo'lga Kiriting 🎁
+              {t("specialOffer.buttonText")}
             </Button>
           </div>
         </section>
@@ -482,29 +435,28 @@ export default function Homes() {
         <section id="contact-section" className="py-20 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <ThumbsUp className="h-12 w-12 mx-auto mb-4 text-blue-400" />
-            <h2 className="text-3xl md:text-5xl font-black">Bugun tozalashga buyurtma bering!</h2>
+            <h2 className="text-3xl md:text-5xl font-black">{t("contactSection.title")}</h2>
             <p className="mt-4 text-gray-300 text-lg max-w-xl mx-auto">
-              Ishchilarimiz sizning uyingiz yoki ofisingizni bir kunda tozalab beradi. 
-              Faqat Telegram orqali yozing yoki qo'ng'iroq qiling.
+              {t("contactSection.description")}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild href="https://t.me/tritonium" target="_blank">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild href={t("common.telegramLink")} target="_blank">
                 <>
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  Telegram'da yozish: @tritonium
+                  {t("contactSection.telegramButton")}
                 </>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-gray-900" asChild href="tel:+998998184200">
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-gray-900" asChild href={`tel:${t("common.phoneNumber").replace(/\s/g, "")}`}>
                 <>
                   <Phone className="mr-2 h-5 w-5" />
-                  +998 99 818 42 00
+                  {t("contactSection.phoneButton")}
                 </>
               </Button>
             </div>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-sm text-gray-300 max-w-2xl mx-auto">
-              <div className="bg-white/10 p-3 rounded-xl backdrop-blur-sm">✓ 24/7 Tezkor aloqa</div>
-              <div className="bg-white/10 p-3 rounded-xl backdrop-blur-sm">✓ Bepul konsultatsiya</div>
-              <div className="bg-white/10 p-3 rounded-xl backdrop-blur-sm">✓ Sifat kafolati</div>
+              {(t.raw("contactSection.badges") as string[]).map((badge, idx) => (
+                <div key={idx} className="bg-white/10 p-3 rounded-xl backdrop-blur-sm">{badge}</div>
+              ))}
             </div>
           </div>
         </section>
@@ -517,36 +469,36 @@ export default function Homes() {
             <div>
               <div className="flex items-center gap-2">
                 <div className="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">PT</span>
+                  <span className="text-white font-bold text-sm">{t("common.brandShort")}</span>
                 </div>
-                <span className="font-black text-xl text-gray-800">Premium <span className="text-blue-600">Toza</span></span>
+                <span className="font-black text-xl text-gray-800">{t("footer.brandName")} <span className="text-blue-600">{t("footer.brandAccent")}</span></span>
               </div>
-              <p className="text-gray-500 mt-3 text-sm">Toshkent bo'ylab professional tozalash xizmati</p>
+              <p className="text-gray-500 mt-3 text-sm">{t("footer.description")}</p>
               <div className="flex gap-3 mt-4">
-                <a href="https://t.me/tritonium" target="_blank" className="text-gray-400 hover:text-blue-600 transition">
+                <a href={t("common.telegramLink")} target="_blank" className="text-gray-400 hover:text-blue-600 transition">
                   <MessageCircle className="h-5 w-5" />
                 </a>
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-gray-800">Aloqa</h4>
+              <h4 className="font-bold text-gray-800">{t("footer.contactHeading")}</h4>
               <ul className="mt-3 space-y-2 text-sm">
-                <li><a href="tel:+998998184200" className="text-gray-500 hover:text-blue-600">+998 99 818 42 00</a></li>
-                <li><a href="https://t.me/tritonium" target="_blank" className="text-gray-500 hover:text-blue-600">Telegram: @tritonium</a></li>
-                <li className="text-gray-400">Toshkent sh., Yunusobod</li>
+                <li><a href={`tel:${t("common.phoneNumber").replace(/\s/g, "")}`} className="text-gray-500 hover:text-blue-600">{t("common.phoneNumber")}</a></li>
+                <li><a href={t("common.telegramLink")} target="_blank" className="text-gray-500 hover:text-blue-600">{t("footer.telegramLabel")}</a></li>
+                <li className="text-gray-400">{t("footer.address")}</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-gray-800">Ish vaqti</h4>
+              <h4 className="font-bold text-gray-800">{t("footer.workingHoursHeading")}</h4>
               <ul className="mt-3 space-y-2 text-sm text-gray-500">
-                <li>Dushanba - Shanba: 08:00 - 20:00</li>
-                <li>Yakshanba: 09:00 - 18:00</li>
-                <li className="text-blue-600 font-medium">24/7 Murojaat qabul qilamiz</li>
+                {(t.raw("footer.workingHours") as string[]).map((hour, idx) => (
+                  <li key={idx} className={idx === 2 ? "text-blue-600 font-medium" : ""}>{hour}</li>
+                ))}
               </ul>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-400 text-xs">
-            © 2026 Premium Toza — Barcha huquqlar himoyalangan. Professional tozalash xizmati.
+            {t("footer.copyright")}
           </div>
         </div>
       </footer>

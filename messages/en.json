@@ -1,0 +1,207 @@
+{
+  "home": {
+    "common": {
+      "brandName": "Premium Toza",
+      "brandShort": "PT",
+      "phoneNumber": "+998 99 818 42 00",
+      "telegramHandle": "@tritonium",
+      "telegramLink": "https://t.me/tritonium"
+    },
+    "navbar": {
+      "logoText": "Premium Toza",
+      "logoAccent": "Toza"
+    },
+    "hero": {
+      "badge": "✨ Professional Cleaning Service in Tashkent",
+      "titleLine1": "Introduce Your Home",
+      "titleLine2": "To Immaculate Cleanliness",
+      "titleLine3": "",
+      "description": "- is not just cleaning, but bringing fresh breath and purity to your home. Experienced workers, modern equipment, and 100% quality guarantee.",
+      "ctaFreeQuote": "Get Free Quote",
+      "ctaTelegram": "Contact via Telegram",
+      "trustCount": "500+",
+      "trustLabel": "customers trust us",
+      "serviceCards": [
+        {
+          "emoji": "🏠",
+          "title": "House / Apartment",
+          "subtitle": "Full cleaning"
+        },
+        {
+          "emoji": "🏢",
+          "title": "Office",
+          "subtitle": "Corporate cleaning"
+        },
+        {
+          "emoji": "🪟",
+          "title": "Windows",
+          "subtitle": "Professional washing"
+        },
+        {
+          "emoji": "✨",
+          "title": "General",
+          "subtitle": "Deep cleaning"
+        }
+      ]
+    },
+    "plansSection": {
+      "badge": "Cleaning Packages",
+      "title": "Package tailored to your needs",
+      "subtitle": "Choose the best cleaning type based on your home's condition"
+    },
+    "plans": {
+      "basic": {
+        "title": "Basic Cleaning",
+        "subtitle": "Daily and weekly cleaning",
+        "badge": "🥇 Popular",
+        "goodFor": [
+          "Weekly cleaning",
+          "For families",
+          "Relatively clean apartments"
+        ],
+        "includes": [
+          "Dust and dirt cleaning",
+          "Floor and carpet cleaning",
+          "Bathroom cleaning",
+          "Kitchen surface cleaning",
+          "Furniture wiping",
+          "Trash removal"
+        ],
+        "buttonText": "Place Order"
+      },
+      "deep": {
+        "title": "General Cleaning",
+        "subtitle": "Deep and seasonal cleaning",
+        "badge": "🥈 Most chosen",
+        "goodFor": [
+          "Seasonal cleaning",
+          "Dirty apartments",
+          "Before guests arrive",
+          "After long periods"
+        ],
+        "includes": [
+          "All services from Basic cleaning",
+          "Deep kitchen cleaning",
+          "Microwave and oven cleaning",
+          "Wall stains removal",
+          "Hard-to-reach bathroom areas",
+          "Complete furniture wiping",
+          "Detailed dust cleaning"
+        ],
+        "buttonText": "Place Order"
+      },
+      "renovation": {
+        "title": "Post-Renovation Cleaning",
+        "subtitle": "Construction dust and residue",
+        "badge": "🥉 Professional",
+        "goodFor": [
+          "New apartments",
+          "After construction",
+          "After renovation",
+          "Offices and homes"
+        ],
+        "includes": [
+          "Construction dust cleaning",
+          "Window washing",
+          "Paint and cement residue removal",
+          "Deep floor cleaning",
+          "Trash and debris collection",
+          "Ceiling and wall cleaning",
+          "Radiator cleaning"
+        ],
+        "buttonText": "Place Order"
+      }
+    },
+    "gallerySection": {
+      "badge": "⭐ Our Work",
+      "title": "Professional cleaning results",
+      "subtitle": "Before and after cleaning - see the difference yourself"
+    },
+    "galleryImages": [
+      {
+        "title": "Living room cleaning",
+        "badge": "✨ General cleaning",
+        "description": "Deep dust and furniture cleaning"
+      },
+      {
+        "title": "Professional kitchen cleaning",
+        "badge": "🍳 Kitchen cleaning",
+        "description": "Oven, stove and appliance cleaning"
+      },
+      {
+        "title": "Window washing",
+        "badge": "🪟 Window cleaning",
+        "description": "Professional window cleaning equipment"
+      },
+      {
+        "title": "Bathroom cleaning",
+        "badge": "🚿 Bathroom cleaning",
+        "description": "Disinfection and stain removal"
+      },
+      {
+        "title": "Upholstery cleaning",
+        "badge": "🛋️ Furniture cleaning",
+        "description": "Sofa and armchair cleaning"
+      },
+      {
+        "title": "Post-renovation cleaning",
+        "badge": "🏗️ After renovation",
+        "description": "Construction dust and debris cleaning"
+      }
+    ],
+    "featuresSection": {
+      "badge": "Why Premium Toza?",
+      "title": "Quality and trust guarantee",
+      "features": [
+        {
+          "title": "100% Quality Guarantee",
+          "description": "Full guarantee on work quality"
+        },
+        {
+          "title": "Experienced Staff",
+          "description": "Qualified and verified employees"
+        },
+        {
+          "title": "24/7 Fast Service",
+          "description": "Fast and on-time service"
+        },
+        {
+          "title": "Eco Products",
+          "description": "Harmless cleaning products"
+        }
+      ]
+    },
+    "specialOffer": {
+      "badge": "Special Offer",
+      "title": "15% discount on your first cleaning!",
+      "description": "Order now and get free vacuum cleaner service",
+      "buttonText": "Claim Discount 🎁"
+    },
+    "contactSection": {
+      "title": "Order cleaning today!",
+      "description": "Our staff will clean your home or office in one day. Just message us on Telegram or call.",
+      "telegramButton": "Write on Telegram: @tritonium",
+      "phoneButton": "+998 99 818 42 00",
+      "badges": [
+        "✓ 24/7 Fast communication",
+        "✓ Free consultation",
+        "✓ Quality guarantee"
+      ]
+    },
+    "footer": {
+      "brandName": "Premium",
+      "brandAccent": "Toza",
+      "description": "Professional cleaning service throughout Tashkent",
+      "contactHeading": "Contact",
+      "telegramLabel": "Telegram: @tritonium",
+      "address": "Tashkent, Yunusabad",
+      "workingHoursHeading": "Working Hours",
+      "workingHours": [
+        "Monday - Saturday: 08:00 - 20:00",
+        "Sunday: 09:00 - 18:00",
+        "24/7 We accept inquiries"
+      ],
+      "copyright": "© 2026 Premium Toza — All rights reserved. Professional cleaning service."
+    }
+  }
+}

@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import  HomePage  from "./HomePage";
+import { Metadata } from "next";
+
+
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://premiumuytozalash.uz"),
@@ -79,45 +82,8 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "CleaningService",
-  name: "Premium Toza",
-  image: "https://premiumuytozalash.uz/logo.png",
-  url: "https://premiumuytozalash.uz",
-  telephone: "+998998184200",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Tashkent",
-    addressCountry: "UZ",
-  },
-  areaServed: {
-    "@type": "City",
-    name: "Tashkent",
-  },
-  description:
-    "Professional apartment, office, general and post renovation cleaning service in Tashkent.",
-  priceRange: "$$",
-  sameAs: ["https://t.me/tritonium"],
-};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="uz">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
 
-        {children}
-      </body>
-    </html>
-  );
+export default function Page  ()  {
+  return <HomePage />;
 }
