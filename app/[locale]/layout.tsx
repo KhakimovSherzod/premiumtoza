@@ -1,164 +1,93 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import {NextIntlClientProvider} from 'next-intl';
 
-type Locale = "uz" | "ru" | "en";
+import { NextIntlClientProvider } from "next-intl";
+import { getTranslations, getMessages } from "next-intl/server";
 
-const metadataTranslations = {
-  uz: {
-    title: "Premium Toza | Professional Tozalash Xizmati",
-    description:
-      "Toshkentdagi professional uy, ofis va general tozalash xizmati.",
-  },
-  ru: {
-    title: "Premium Toza | Профессиональная уборка",
-    description:
-      "Профессиональная уборка квартир, офисов и помещений в Ташкенте.",
-  },
-  en: {
-    title: "Premium Toza | Professional Cleaning Service",
-    description:
-      "Professional apartment, office and deep cleaning service in Tashkent.",
-  },
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{
+    locale: string;
+  }>;
 };
 
 export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}): Promise<Metadata> {
+  params
+}: Props): Promise<Metadata> {
+
   const { locale } = await params;
 
-  const meta =
-    metadataTranslations[locale] || metadataTranslations.uz;
+  const t = await getTranslations({
+    locale,
+    namespace: "metadata.layout"
+  });
 
   return {
-    metadataBase: new URL("https://premiumuytozalash.uz"),
-
+    
     title: {
-      default: meta.title,
-      template: `%s | Premium Toza`,
+      default: t("title"),
+      template: "%s | Premium Tozalash xizmati",
     },
 
-    description: meta.description,
+    description: t("description"),
+
+     icons: {
+    icon: [
+      {
+        url:"/favicon.ico",
+        type: "image/x-icon",
+      },
+      {
+        url: "/favicon-96x96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: ["/favicon.ico"],
+  },
 
     keywords: [
-      "cleaning service tashkent",
-      "tozalash xizmati",
-      "general cleaning",
-      "uy tozalash",
-      "office cleaning",
-      "premium toza",
+      t("keywords.cleaning"),
+      t("keywords.homeCleaning"),
+      t("keywords.officeCleaning"),
+      t("keywords.cleaningService"),
     ],
 
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        uz: "/uz",
-        ru: "/ru",
-        en: "/en",
-      },
-    },
-
     openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: `https://premiumuytozalash.uz/${locale}`,
-      siteName: "Premium Toza",
-      locale:
-        locale === "ru"
-          ? "ru_RU"
-          : locale === "en"
-          ? "en_US"
-          : "uz_UZ",
+      title: t("title"),
+      description: t("description"),
+      url: "https://premiumuytozalash.uz",
+      siteName: "VIDO Premium Toza",
+      locale,
       type: "website",
-
       images: [
         {
           url: "/logo.png",
           width: 1200,
           height: 630,
-          alt: "Premium Toza",
+          alt: "Cleaning Service",
         },
       ],
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title: meta.title,
-      description: meta.description,
-      images: ["/logo.png"],
-    },
-
-    robots: {
-      index: true,
-      follow: true,
-    },
-
-    icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon.ico",
-      apple: "/apple-touch-icon.png",
     },
   };
 }
 
 export default async function RootLayout({
   children,
-  params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
-}>) {
+  params
+}: Props) {
+
   const { locale } = await params;
 
-  const descriptions = {
-    uz: "Toshkentdagi professional tozalash xizmati",
-    ru: "Профессиональная уборка в Ташкенте",
-    en: "Professional cleaning service in Tashkent",
-  };
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CleaningService",
-
-    name: "Premium Toza",
-
-    image: "https://premiumuytozalash.uz/logo.png",
-
-    url: `https://premiumuytozalash.uz/${locale}`,
-
-    telephone: "+998998184200",
-
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Tashkent",
-      addressCountry: "UZ",
-    },
-
-    areaServed: {
-      "@type": "City",
-      name: "Tashkent",
-    },
-
-    description: descriptions[locale],
-
-    priceRange: "$$",
-
-    sameAs: ["https://t.me/tritonium"],
-  };
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
-
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

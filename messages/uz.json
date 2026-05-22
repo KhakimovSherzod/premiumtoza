@@ -203,5 +203,17 @@
       ],
       "copyright": "© 2026 Premium Toza — Barcha huquqlar himoyalangan. Professional tozalash xizmati."
     }
+  },
+  "metadata": {
+    "layout":{
+      "title": "Premium Toza | Professional Tozalash Xizmati",
+      "description": "Toshkentdagi professional uy, ofis va general tozalash xizmati.",
+      "keywords": {
+      "cleaning": "tozalash xizmati",
+      "homeCleaning": "uy tozalash",
+      "officeCleaning": "ofis tozalash",
+      "cleaningService": "professional tozalash xizmati"
+    }
+    }
   }
 }

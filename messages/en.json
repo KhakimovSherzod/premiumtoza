@@ -203,5 +203,19 @@
       ],
       "copyright": "© 2026 Premium Toza — All rights reserved. Professional cleaning service."
     }
+  },
+
+  "metadata": {
+    "layout": {
+      "title": "Premium Toza | Professional Cleaning Service",
+      "description": "Professional home, office, and deep cleaning services in Tashkent.",
+       "keywords": {
+      "cleaning": "cleaning service",
+      "homeCleaning": "home cleaning",
+      "officeCleaning": "office cleaning",
+      "cleaningService": "professional cleaning service"
+    }
+    }
   }
+
 }
