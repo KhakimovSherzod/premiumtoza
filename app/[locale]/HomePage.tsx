@@ -1,4 +1,3 @@
-// app/page.tsx - Three cleaning plans with Light Gray + Blue Accent professional theme
 "use client";
 
 import React from "react";
@@ -19,6 +18,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 type ButtonVariant = "default" | "outline" | "ghost";
 type ButtonSize = "default" | "lg" | "sm";
@@ -200,6 +200,8 @@ export default function Homes() {
                 {t("navbar.logoText")} <span className="text-blue-600">{t("navbar.logoAccent")}</span>
               </span>
             </div>
+            <LanguageSwitcher />
+          
             <div className="flex items-center gap-3">
               <a
                 href={`tel:${t("common.phoneNumber").replace(/\s/g, "")}`}
